@@ -85,7 +85,7 @@
 			status = "okay";
 		};
 
-		gmac1: eth@05020000 {
+		gmac0: eth@05020000 {
 			phy-mode = "rmii";
 			status = "okay";
 		};
