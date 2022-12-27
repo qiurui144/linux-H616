@@ -85,7 +85,7 @@
 			status = "okay";
 		};
 
-		gmac1: eth@05030000 {
+		gmac1: eth@05020000 {
 			phy-mode = "rmii";
 			status = "okay";
 		};
@@ -96,7 +96,7 @@
 			tv_twi_id = <3>;
 			tv_twi_addr = <16>;
 			tv_pwm_ch = <5>;
-			status = "okay";
+			status = "disabled";
 		};
 
 		wlan:wlan {
@@ -345,16 +345,31 @@
 			};
 		};
 
+                spi0: spi@05010000 {
+                        pinctrl-0 = <&spi0_pins_a &spi0_pins_b>;
+                        pinctrl-1 = <&spi0_pins_c>;
+                        spi_slave_mode = <0>;
+                        status = "okay";
+                        spi_board0 {
+                                device_type = "spi_board0";
+                                compatible = "rohm,dh2228fv";
+                                spi-max-frequency = <0x1000000>;
+                                reg = <0x0>;
+                                spi-rx-bus-width = <0x1>;
+                                spi-tx-bus-width = <0x1>;
+                        };
+                };
+
 		spi1: spi@05011000 {
 			pinctrl-0 = <&spi1_pins_a &spi1_pins_b>;
 			pinctrl-1 = <&spi1_pins_c>;
 			spi_slave_mode = <0>;
-			status = "disable";
+			status = "okay";
 			spi_board1 {
 				device_type = "spi_board1";
 				compatible = "rohm,dh2228fv";
-				spi-max-frequency = <0x5f5e100>;
-				reg = <0x0>;
+				spi-max-frequency = <0x1000000>;
+				reg = <0x1>;
 				spi-rx-bus-width = <0x1>;
 				spi-tx-bus-width = <0x1>;
 			};
@@ -465,7 +480,7 @@
 
 		usbc1:usbc1@0 {
 			device_type		= "usbc1";
-			usb_drv_vbus_gpio	= <&pio PH 8 0 1 0xffffffff 0xffffffff>;
+			usb_drv_vbus_gpio	= <&pio PH 16 0 1 0xffffffff 0xffffffff>;
 			usb_host_init_state	= <0x1>;
 			usb_regulator_io	= "nocare";
 			usb_wakeup_suspend	= <0x2>;
@@ -579,7 +594,7 @@
 		};
 
 		snddaudio0:sound@0{
-			status = "okay";
+			status = "disabled";
 		};
 
 		sndhdmi:sound@1{
@@ -600,7 +615,7 @@
 		};
 
 		sndspdif:sound@4{
-			status = "okay";
+			status = "disabled";
 		};
 
 		snddmic:sound@5{
@@ -618,9 +633,10 @@
 			device_type = "gpio_para";
 			status = "okay";
 			compatible = "allwinner,sunxi-init-gpio";
-			gpio_num = <1>;
-			gpio_pin_1 = <&pio PH 6 1 0xffffffff 0xffffffff 1>;
-			normal_led = "gpio_pin_1";
+			gpio_num = <2>;
+			gpio_pin_1 = <&pio PH 12 1 0xffffffff 0xffffffff 0>;
+			gpio_pin_2 = <&pio PH 13 1 0xffffffff 0xffffffff 1>;
+			normal_led = "gpio_pin_2";
 			easy_light_used = <1>;
 			normal_led_light = <1>;
 		};
@@ -723,7 +739,7 @@
 		;---------------------------------------------------------------------------------*/
 
 		tv0: tv0@01c94000 {
-			status =  "okay";
+			status =  "disabled";
 
 			dac_src0        = <0>;
 			dac_type0       = <0>;
