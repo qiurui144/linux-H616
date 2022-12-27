@@ -446,7 +446,7 @@
 
 		auto_print {
 			device_type = "auto_print";
-			status = "okay";
+			status = "disabled";
 		};
 
 		dma0:dma-controller@03002000 {

@@ -379,21 +379,21 @@
 			clock-frequency = <400000>;
 			pinctrl-0 = <&twi0_pins_a>;
 			pinctrl-1 = <&twi0_pins_b>;
-			status = "disable";
+			status = "disabled";
 		};
 
 		twi1: twi@0x05002400{
 			clock-frequency = <200000>;
 			pinctrl-0 = <&twi1_pins_a>;
 			pinctrl-1 = <&twi1_pins_b>;
-			status = "disable";
+			status = "disabled";
 		};
 
 		twi2: twi@0x05002800{
 			clock-frequency = <200000>;
 			pinctrl-0 = <&twi2_pins_a>;
 			pinctrl-1 = <&twi2_pins_b>;
-			status = "disable";
+			status = "disabled";
 		};
 
 		twi3: twi@0x05002c00{
@@ -407,7 +407,7 @@
 			clock-frequency = <200000>;
 			pinctrl-0 = <&twi4_pins_a>;
 			pinctrl-1 = <&twi4_pins_b>;
-			status = "disable";
+			status = "disabled";
 		};
 
 		twi5: twi@0x07081400{
